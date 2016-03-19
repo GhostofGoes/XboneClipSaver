@@ -1,9 +1,11 @@
+# scraper.py
+
 import xbox
 import os
 import urllib
 import argparse
 
-
+# Downloads all game clips to a given folder
 def save_clips(save_folder, clips):
     if not os.path.exists(save_folder):
         os.mkdir(save_folder)
@@ -24,8 +26,8 @@ def save_clips(save_folder, clips):
         clip_count += 1
 
 
-
-def save_screenshots(save_folder, screenies):
+# Downloads all screenshots to a given folder
+def save_screenshots(save_folder, screenshots):
     if not os.path.exists(save_folder):
         os.mkdir(save_folder)
         print("Created folder.")
@@ -34,7 +36,7 @@ def save_screenshots(save_folder, screenies):
     screenie_count = 0
 
 
-
+# Prompt user for things
 def user_prompts():
     user = input("Enter username: ")
     pwd = input("Enter password: ")
@@ -57,9 +59,11 @@ def user_prompts():
     clips = list(clips)
     save_clips(save_folder, clips)
 
+# Don't prompt user for things, assume set in command line args or a config file
 def unattend():
 
-
+# TODO: theaded saving of clips, etc
+# TODO: commandline arguments
 def main():
     prompt = True
     parser = argparse.ArgumentParser()
@@ -71,7 +75,8 @@ def main():
         unattend()
 
 
+# I like to control my pythons, ok?
 if __name__ == "__main__":
     main()
 
-# TODO: commandline arguments
+
