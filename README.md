@@ -1,2 +1,2 @@
 # XboneClipSaver
-A simple python script that saves Xbox ONE recordings to your computer. Utilizes xboxclips.com. Why does this exists? Because "clip uploaded" doesn't mean its not auto deleted...no matter how much onedrive storage you have :P
+A simple python script that saves Xbox One recordings to your computer using the undocumented Xbox One API. (What is it with MS and undocumented APIs?)
