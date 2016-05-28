@@ -16,19 +16,18 @@ class XboxScraper:
         else:
             logging.basicConfig(level=logging.INFO)
         self.clip_folder = clip_folder
-        self.make_folder(clip_folder)
         self.screenshot_folder = screenshot_folder
-        self.make_folder(screenshot_folder)
 
     def save_clips(self, clips):
         """ Downloads all game clips to a given folder """
+        self.make_folder(self.clip_folder)
         clip_count = 0  # I can't python
         for clip in clips:
             clip_json = clip.raw_json
             download_url = clip_json["gameClipUris"][0]["uri"]
             # video_name = clip_json["titleName"] + clip_json["dateRecorded"]
             video_name = "video" + clip_count.__str__()  # Like I said, I can't python
-            file_name = os.path.join(self.save_folder, video_name + ".mp4")
+            file_name = os.path.join(self.clip_folder, video_name + ".mp4")
             if not os.path.isfile(file_name):
                 urllib.request.urlretrieve(download_url, file_name)
             else:
@@ -37,6 +36,7 @@ class XboxScraper:
 
     # TODO: implement screenshot saving, possibly using code in old/scraper2.py
     def save_screenshots(self, screenshots):
+        self.make_folder(self.screenshot_folder)
         """ Downloads all screenshots to a given folder """
         screenie_count = 0
 
